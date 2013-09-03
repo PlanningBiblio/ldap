@@ -1,13 +1,13 @@
 <?php
 /*
-Planning Biblio, Plugin LDAP Version 1.0.2
+Planning Biblio, Plugin LDAP Version 1.0.3
 Licence GNU/GPL (version 2 et au dela)
 Voir les fichiers README.txt et COPYING.txt
 Copyright (C) 2013 - Jérôme Combes
 
 Fichier : plugins/ldap/import2.php
 Création : 27 juin 2013
-Dernière modification : 19 août 2013
+Dernière modification : 3 septembre 2013
 Auteur : Jérôme Combes, jerome@planningbilbio.fr
 
 Description :
@@ -47,7 +47,7 @@ echo "<input type='text' name='recherche-ldap' value='$req' />\n";
 <br/>
 
 <?php
-//		Recherche dans l'annuaire si une le formulaire est validé
+//		Recherche dans l'annuaire si le formulaire est validé
 if(isset($_GET['recherche-ldap'])){
   $infos=array();
   if(!$config['LDAP-Port']){
@@ -70,11 +70,12 @@ if(isset($_GET['recherche-ldap'])){
 
   //	Connexion au serveur LDAP
   $ldapconn = ldap_connect($config['LDAP-Host'],$config['LDAP-Port'])
-    or die ("Impossible de se connecter au serveur LDAP");
+    or die ("Impossible de joindre le serveur LDAP");
   ldap_set_option($ldapconn, LDAP_OPT_PROTOCOL_VERSION, 3);
   ldap_set_option($ldapconn, LDAP_OPT_REFERRALS, 0);
   if($ldapconn){
-    $ldapbind=ldap_bind($ldapconn,$config['LDAP-RDN'],decrypt($config['LDAP-Password']));
+    $ldapbind=ldap_bind($ldapconn,$config['LDAP-RDN'],decrypt($config['LDAP-Password']))
+      or die ("Impossible de se connecter au serveur LDAP");
   }
   if($ldapbind){
     $justthese=array("dn","uid","sn","givenname","userpassword","mail");

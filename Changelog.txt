@@ -1,0 +1,3 @@
+***	Version 1.0.3	(Jérôme Combes, Septembre 2013)		***
+- Améliorations :
+Remplacement des messages d'erreur de connexion au serveur LDAP dans le fichier import2.php
