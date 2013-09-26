@@ -1,13 +1,13 @@
 <?php
 /*
-Planning Biblio, Plugin LDAP Version 1.0.3
+Planning Biblio, Plugin LDAP Version 1.0.4
 Licence GNU/GPL (version 2 et au dela)
 Voir les fichiers README.txt et COPYING.txt
 Copyright (C) 2013 - Jérôme Combes
 
 Fichier : plugins/ldap/import2.php
 Création : 27 juin 2013
-Dernière modification : 3 septembre 2013
+Dernière modification : 26 septembre 2013
 Auteur : Jérôme Combes, jerome@planningbilbio.fr
 
 Description :
@@ -86,7 +86,7 @@ if(isset($_GET['recherche-ldap'])){
   //	Recherche des agents existants
   $agents_existants=array();
   $db=new db();
-  $db->query("SELECT `login` FROM `{$dbprefix}personnel` WHERE `supprime`<>'1' ORDER BY `login`;");
+  $db->query("SELECT `login` FROM `{$dbprefix}personnel` WHERE `supprime`<>'2' ORDER BY `login`;");
   if($db->result){
     foreach($db->result as $elem){
       $agents_existants[]=$elem['login'];
