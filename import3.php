@@ -2,7 +2,7 @@
 /*
 Planning Biblio, Plugin LDAP Version 1.0.4
 Licence GNU/GPL (version 2 et au dela)
-Voir les fichiers README.txt et COPYING.txt
+Voir les fichiers README.md et LICENSE
 Copyright (C) 2013 - Jérôme Combes
 
 Fichier : plugins/ldap/import3.php
