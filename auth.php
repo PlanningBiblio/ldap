@@ -1,22 +1,22 @@
 <?php
 /*
-Planning Biblio, Plugin LDAP Version 1.0.4
+Planning Biblio, Plugin LDAP Version 1.0.5
 Licence GNU/GPL (version 2 et au dela)
 Voir les fichiers README.md et LICENSE
 Copyright (C) 2013 - Jérôme Combes
 
 Fichier : plugins/ldap/auth.php
 Création : 27 juin 2013
-Dernière modification : 24 juillet 2013
+Dernière modification : 26 mars 2014
 Auteur : Jérôme Combes, jerome@planningbilbio.fr
 
 Description :
 Fichier permettant l'authentification LDAP
 */
 
-include "class.ldap.inc";
+include "class.ldap.php";
 if(substr($config['Auth-Mode'],0,3)=="CAS"){
-  $authArgs=$_SESSION['oups']['Auth-Mode']=="CAS"?null:"?noCAS";
+  $authArgs=(array_key_exists("oups",$_SESSION) and $_SESSION['oups']['Auth-Mode']=="CAS")?null:"?noCAS";
 }
 
 if($login!="admin"){

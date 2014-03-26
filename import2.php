@@ -1,13 +1,13 @@
 <?php
 /*
-Planning Biblio, Plugin LDAP Version 1.0.4
+Planning Biblio, Plugin LDAP Version 1.0.5
 Licence GNU/GPL (version 2 et au dela)
 Voir les fichiers README.md et LICENSE
 Copyright (C) 2013 - Jérôme Combes
 
 Fichier : plugins/ldap/import2.php
 Création : 27 juin 2013
-Dernière modification : 26 septembre 2013
+Dernière modification : 26 mars 2014
 Auteur : Jérôme Combes, jerome@planningbilbio.fr
 
 Description :
@@ -120,11 +120,14 @@ if(isset($_GET['recherche-ldap'])){
 
     foreach($infos as $info){
       $class=$class=="tr1"?"tr2":"tr1";
+      $sn=array_key_exists('sn',$info)?$info['sn'][0]:null;
+      $givenname=array_key_exists('givenname',$info)?$info['givenname'][0]:null;
+      $mail=array_key_exists('mail',$info)?$info['mail'][0]:null;
       echo "<tr class='$class'>\n";
       echo "<td><input type='checkbox' name='chk$i' value='".utf8_decode($info['uid'][0])."' /></td>\n";
-      echo "<td>{$info['sn'][0]}</td>\n";
-      echo "<td>{$info['givenname'][0]}</td>\n";
-      echo "<td>{$info['mail'][0]}</td>\n";
+      echo "<td>$sn</td>\n";
+      echo "<td>$givenname</td>\n";
+      echo "<td>$mail</td>\n";
       echo "<td>{$info['uid'][0]}</td>\n";
       echo "</tr>\n";
       $i++;
