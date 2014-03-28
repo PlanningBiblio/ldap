@@ -3,7 +3,7 @@
 Planning Biblio, Plugin LDAP Version 1.0.5
 Licence GNU/GPL (version 2 et au dela)
 Voir les fichiers README.md et LICENSE
-Copyright (C) 2013 - Jérôme Combes
+Copyright (C) 2013-2014 - Jérôme Combes
 
 Fichier : plugins/ldap/auth.php
 Création : 27 juin 2013
